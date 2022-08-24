@@ -249,70 +249,39 @@ let obj = [
     {name: 'Yemen', code : 'YE'},
     {name: 'Zambia', code : 'ZM'},
     {name: 'Zimbabwe', code : 'ZW'},
-    ];
+];
     
-    /*
-    let array = [
-        [
-            { name:'First', age:'11'},
-            { name:'Second', age:'22'},
-            { name:'Third', age:'33'},
-            { name:'Fourth', age:'44'},
-            { name:'Fifth', age:'55'} 
-        ],
-        [4, 5, 6]
-    ];
-    */
-    
-    /* let obj = {
-        1:{firstName:'First', lastName:'First', age:'11'},
-        2:{firstName:'Second',lastName:'Second', age:'', address:'19 sharps road, havant, hampshire, po95qh'},
-        3:{firstName:'Third', lastName:'Third', age:'33'},
-        4:{firstName:'Fourth',lastName:'Fourth', age:'44'},
-        5:{firstName:'Fifth', lastName:'Fifth', age:'55'}
-    };*/
-    
-    Object.entries(obj).forEach(([key, value]) => {
-      /*  const ul = document.querySelector('#ul');
-        const li = document.createElement('li');
-        // const divText = document.createTextNode((value.firstName).toUpperCase() + ' ' + value.age);
-        const divText = document.createTextNode((value.name).toUpperCase() + ' ' + value.code);
-        
-        ul.appendChild(li);
-        li.appendChild(divText);*/
-    
-        const select = document.querySelector('#select');
-        const option = document.createElement('option');
-        option.setAttribute('value', key);
-        const Text = document.createTextNode(value.name);
-        select.appendChild(option);
-        option.appendChild(Text);
-    
-        select.addEventListener('change', () => {
-            console.log(select.value);
-            if(select.value == key){
-                document.querySelector('#ageUl').innerHTML = '';
-                // for (const [key, value] of Object.entries(obj)) {
-                const idUl = document.querySelector('#ageUl');
-                const idLi = document.createElement('li');
-                const idText = document.createTextNode(key);
-                idLi.appendChild(idText);
-                idUl.appendChild(idLi);
-                //console.log(JSON.stringify(value));
-                for (const [detailsKey, detailsValue] of Object.entries(value)) {
+Object.entries(obj).forEach(([key, value]) => {
+   
+    const select = document.querySelector('#select');
+    const option = document.createElement('option');
+    option.setAttribute('value', key);
+    const Text = document.createTextNode(value.name);
+    select.appendChild(option);
+    option.appendChild(Text);
+
+    select.addEventListener('change', () => {
+        console.log(select.value);
+        if(select.value == key){
+
+            document.querySelector('#ageUl').innerHTML = '';
+            const idUl = document.querySelector('#ageUl');
+            const idLi = document.createElement('li');
+            const idText = document.createTextNode(key);
+            idLi.appendChild(idText);
+            idUl.appendChild(idLi);
+
+            for (const [detailsKey, detailsValue] of Object.entries(value)) {
                     
-                    console.log(JSON.stringify(value));
-                    console.log(value.name);
-    
-                    const detailsUl = document.createElement('ul');
-                    const detailsLi = document.createElement('li');
-                    const detailsText1 = document.createTextNode(detailsKey.toUpperCase() + ` : ` + detailsValue.toUpperCase());
-                    
-                    idLi.appendChild(detailsUl);
-                    detailsUl.appendChild(detailsLi);                    
-                    detailsLi.appendChild(detailsText1);
-                }
-                //}
+                console.log(JSON.stringify(value));
+                console.log(value.name);
+                const detailsUl = document.createElement('ul');
+                const detailsLi = document.createElement('li');
+                const detailsText1 = document.createTextNode(detailsKey.toUpperCase() + ` : ` + detailsValue.toUpperCase());
+                idLi.appendChild(detailsUl);
+                detailsUl.appendChild(detailsLi);                    
+                detailsLi.appendChild(detailsText1);
             }
-        });
+        }
     });
+});
