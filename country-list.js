@@ -281,6 +281,7 @@ Object.entries(obj).forEach(([key, value]) => {
                 idLi.appendChild(detailsUl);
                 detailsUl.appendChild(detailsLi);                    
                 detailsLi.appendChild(detailsText1);
+                
             }
         }
     });
