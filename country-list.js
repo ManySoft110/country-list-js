@@ -262,10 +262,11 @@ Object.entries(obj).forEach(([key, value]) => {
 
     select.addEventListener('change', () => {
         console.log(select.value);
+        
         if(select.value == key){
 
-            document.querySelector('#ageUl').innerHTML = '';
-            const idUl = document.querySelector('#ageUl');
+            document.querySelector('#countryInfo').innerHTML = '';
+            const idUl = document.querySelector('#countryInfo');
             const idLi = document.createElement('li');
             const idText = document.createTextNode(key);
             idLi.appendChild(idText);
@@ -275,6 +276,7 @@ Object.entries(obj).forEach(([key, value]) => {
                     
                 console.log(JSON.stringify(value));
                 console.log(value.name);
+
                 const detailsUl = document.createElement('ul');
                 const detailsLi = document.createElement('li');
                 const detailsText1 = document.createTextNode(detailsKey.toUpperCase() + ` : ` + detailsValue.toUpperCase());
